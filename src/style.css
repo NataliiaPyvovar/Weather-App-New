@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(
+      90deg,
+      rgb(115, 218, 252) 0%,
+      rgb(139, 102, 241) 100%
+    );
+    font-family: "Roboto", sans-serif;
+  }
+  .container {
+    display: block;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgb(133, 129, 129);
+    max-width: 800px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 1px solid white;
+    padding: 40px 40px;
+  }
+  h1 {
+    color: #00204a;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: "Satisfy", cursive;
+    font-size: 40px;
+  }
+  h2,
+  h3 {
+    color: #00204a;
+    text-align: center;
+    margin: 20px auto;
+    font-family: "Satisfy", cursive;
+  }
+  h4 {
+    font-size: 30px;
+    font-family: "Satisfy";
+    color: #00204a; 
+  }
+  .your-sity {
+    text-align: center;
+  }
+  .enter-sity {
+    width: 300px;
+    border: 01px solid #ced4da;
+    border-radius: 5px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-left: 10px;
+  }
+  .search-sity {
+    width: 100px;
+    border: 01px solid #ced4da;
+    border-radius: 5px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+  }
+  
+  .current-sity {
+    width: 100px;
+    border: 01px solid #ced4da;
+    border-radius: 5px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+  }
+  .card {
+    background: transparent;
+    margin-left: 10px;
+  }
+  .card-group {
+    text-align: center;
+  }
+  
+  .currentTemperature {
+    color: #00204a;
+    text-align: center;
+    margin: 20px auto;
+    font-family: "Satisfy", cursive;
+    font-size: 25px;
+  }
+  p:first-letter{
+    text-transform: capitalize;
+  }
+  .units .active {
+cursor: default;
+  }
+
+  .units .active:hover {
+    cursor: default;
+    text-decoration: none;
+      }
+      footer{
+        text-align: center;
+        padding-top: 10px;
+      }
