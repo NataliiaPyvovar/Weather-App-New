@@ -32,6 +32,7 @@
   </head>
 
   <body>
+    
     <div class="container">
       <h1>
         Weather forecast
@@ -45,18 +46,12 @@
             placeholder="Enter your city..."
             autocomplete="off"
             onfocus="value=''"
-            id="city-input"
-          />
-
+            id="city-input"/>
           <input type="submit" value="Search" class="search-sity" />
-          <input
-            type="submit"
-            value="Current"
-            class="current-sity"
-            id="get-current-city"
-          />
+          <input type="submit" value="Current"class="current-sity"id="get-current-city"/>
         </form>
       </div>
+      
       <h2 id="city">
         Kyiv
       </h2>
@@ -79,68 +74,18 @@
           </div>
         </div>
       </div>
+      
       <div class="currentTemperature">
-        <span class="temperature" id="temperature"></span
-        ><span class="units">
-          <a href="#" id="celsius-link">°C</a> |
-          <a href="#" id="fahrenheit-link">°F</a>
-        </span>
+        <span class="temperature" id="temperature"></span>
+        <span class="units">°C</span>
       </div>
-
       <hr />
-
-      <div class="row">
-        <div class="card-group">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <p>Wednesday <br />+3°C</p>
-                <img src="images/weather1.svg" alt="" width="50%" />
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <p>Thursday <br />+2°C</p>
-                <img src="images/weather5.svg" alt="" width="50%" />
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <p>Friday <br />+5°C</p>
-                <img src="images/weather5.svg" alt="" width="50%" />
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <p>Saturday <br />+3°C</p>
-                <img src="images/weather1.svg" alt="" width="50%" />
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <p>Sunday <br />+2°C</p>
-                <img src="images/weather1.svg" alt="" width="50%" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="weather-forecast" id="forecast"></div>
       <footer>
         This project was coded by Nataliia Pyvovar and is <a href="https://github.com/NataliiaPyvovar/Weather-App-New" target="_blank" rel="noopener noreferrer">open-sourced on GitHub</a> and <a href="https://strong-stardust-cc2328.netlify.app/" target="_blank" rel="noopener noreferrer">hosted on Netlify</a>
       </footer>
     </div>
+    
    <script src="src/app.js"></script>
   
   </body>

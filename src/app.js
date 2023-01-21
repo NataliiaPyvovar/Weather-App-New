@@ -71,6 +71,9 @@ function showDate() {
     let windELement = document.querySelector("#windspeed");
     let iconElement = document.querySelector("#icon");
     let temperatureElement = document.querySelector("#temperature");
+    let dateElement = document.querySelector("#date");
+    let cityElement = document.querySelector("#city");
+  
   
     
     humidityElement.innerHTML = response.data.temperature.humidity + `%`;
@@ -79,11 +82,14 @@ function showDate() {
     document.querySelector("#city").innerHTML = response.data.city;
     celsiusTemperature = response.data.temperature.current;
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
+    cityElement.innerHTML = response.data.city;
+    // dateElement.innerHTML = formatDate(response.data.time * 1000);
 
   
     iconElement.setAttribute("src",`https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
     );
     iconElement.setAttribute("alt", response.data.condition.description);
+    getForecast(response.data.coordinates);
   }
 
 
@@ -106,31 +112,53 @@ function showDate() {
   getCurrentCity.addEventListener("click", getPosition);
 
 
-//  Celcius and Fahrenheit
-function convertToFahrenheit(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-  }
+
   
-  function convertToCelsius(event) {
-    event.preventDefault();
-    celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  }
-  
-  
-  let celsiusTemperature = null;
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink.addEventListener("click", convertToFahrenheit);
-  
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", convertToCelsius);
+// Daily weather forecast
+
+
+function displayForecast(response) {
+  console.log(response.data);
+
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+            <div class="weather-forecast-day">${formatDay(
+              forecastDay.time
+            )}</div>
+            
+            <img
+              src= "https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png"
+              alt=""
+              
+            />
+            <div class="weather-forecast-temps">
+              <span class="temp-max">${Math.round(
+                forecastDay.temperature.maximum
+              )}°</span>
+              <span class="temp-min">${Math.round(
+                forecastDay.temperature.minimum
+              )}°</span>
+            </div>
+          </div>
+        `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
   searchCity("Kyiv");
+  displayForecast();
   
