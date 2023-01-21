@@ -160,7 +160,7 @@ function displayForecast(response) {
 }
 function getForecast(coordinates) {
   let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
   searchCity("Kyiv");
