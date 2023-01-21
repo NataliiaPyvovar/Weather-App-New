@@ -116,49 +116,53 @@ function showDate() {
   
 // Daily weather forecast
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
+  return days[day];
+}
 function displayForecast(response) {
-  console.log(response.data);
-
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-2">
-            <div class="weather-forecast-day">${formatDay(
-              forecastDay.time
-            )}</div>
-            
-            <img
-              src= "https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-                forecastDay.condition.icon
-              }.png"
-              alt=""
-              
-            />
-            <div class="weather-forecast-temps">
-              <span class="temp-max">${Math.round(
-                forecastDay.temperature.maximum
-              )}°</span>
-              <span class="temp-min">${Math.round(
-                forecastDay.temperature.minimum
-              )}°</span>
-            </div>
-          </div>
-        `;
+        `
+    <div class="col-2">
+      <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+      <img
+       src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+         forecastDay.condition.icon
+       }.png"
+        alt=""
+        width="70"
+      />
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-max"> ${Math.round(
+          forecastDay.temperature.maximum
+        )}° </span>
+        <span class="weather-forecast-temperature-min"> ${Math.round(
+          forecastDay.temperature.minimum
+        )}° </span>
+      </div>
+    </div>
+  `;
     }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
+function getForecast(coordinates) {
+  let apiKey = "bd79ao40tde3dec118ca46bc3e6dd55f";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
   searchCity("Kyiv");
-  displayForecast();
+  
   

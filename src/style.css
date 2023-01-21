@@ -121,4 +121,28 @@ body {
       margin: auto;
       text-align: center;
     }
+
+    .weather-forecast {
+      text-align: center;
+    }
+    .search-form{
+      text-align: center;
+    }
+   .weather-forecast-date{
+    color: #00204a;
+  text-align: center;
+  font-family: "Satisfy";
+  font-size: 20px;
+   }
+.name {
+    color: #00204a;
+    font-family: "Satisfy";
+    font-size: 20px;
+   }
+.github{
+    color: #00204a;
+   }
+.netlify{
+    color: #00204a;
+   }
     
