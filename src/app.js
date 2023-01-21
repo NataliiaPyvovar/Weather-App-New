@@ -83,7 +83,7 @@ function showDate() {
     celsiusTemperature = response.data.temperature.current;
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.city;
-    // dateElement.innerHTML = formatDate(response.data.time * 1000);
+    
 
   
     iconElement.setAttribute("src",`https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
